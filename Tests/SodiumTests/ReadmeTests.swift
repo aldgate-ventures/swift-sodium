@@ -6,6 +6,7 @@ class ReadmeTests : XCTestCase {
         ("testAnonymousEncryptionSealedBoxes", testAnonymousEncryptionSealedBoxes),
         ("testAttachedSignatures", testAttachedSignatures),
         ("testAuth", testAuth),
+        ("testSignKeyConversion", testSignKeyConversion),
         ("testAuthenticatedEncryption", testAuthenticatedEncryption),
         ("testBase64", testBase64),
         ("testConstantTimeComparison", testConstantTimeComparison),
@@ -100,6 +101,23 @@ class ReadmeTests : XCTestCase {
             // signature is valid
         }
     }
+    
+    func testSignKeyConversion() {
+            let sodium = Sodium()
+            let signingKeyPair = sodium.sign.keyPair()!
+            let encryptionKeyPair = sodium.sign.convertEd25519KeyPairToCurve25519(keyPair: signingKeyPair)!
+
+            XCTAssertNotNil(encryptionKeyPair)
+
+            let message = "My Test Message".bytes
+            let cipherText = sodium.box.seal(message: message, recipientPublicKey: encryptionKeyPair.publicKey)
+
+            XCTAssertNotNil(cipherText)
+
+            let plainText = sodium.box.open(anonymousCipherText: cipherText!, recipientPublicKey: encryptionKeyPair.publicKey, recipientSecretKey: encryptionKeyPair.secretKey)
+
+            XCTAssertEqual(plainText, "My Test Message".bytes)
+        }
 
     func testSecretKeyAuthenticatedEncryption() {
         let sodium = Sodium()
