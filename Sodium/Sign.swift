@@ -204,4 +204,15 @@ extension Sign {
             return nil;
         }
     }
+    
+    //crypto_sign_ed25519_sk_to_seed
+    public func convertEd25519SkToSeed(secretKey: SecretKey) -> Bytes? {
+        var seed = Array<UInt8>(count: crypto_box_seedbytes())
+        if .SUCCESS == crypto_sign_ed25519_sk_to_seed(&seed, secretKey).exitCode {
+            return seed
+        }
+        else {
+            return nil
+        }
+    }
 }
