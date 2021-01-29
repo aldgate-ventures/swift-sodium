@@ -12,7 +12,6 @@
 		091C7CDC1A50839D002E5351 /* Sign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091C7CDB1A50839D002E5351 /* Sign.swift */; };
 		093EFE3C24DB1D8900D7ED92 /* Sodium.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90C75E941AE3571900F1E749 /* Sodium.framework */; };
 		093EFE3D24DB1D8900D7ED92 /* Sodium.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 90C75E941AE3571900F1E749 /* Sodium.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		093EFE3F24DB1E1400D7ED92 /* Clibsodium.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 093EFE3E24DB1E1400D7ED92 /* Clibsodium.xcframework */; };
 		093EFE4024DB1E1400D7ED92 /* Clibsodium.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 093EFE3E24DB1E1400D7ED92 /* Clibsodium.xcframework */; };
 		093EFE4124DB1E1400D7ED92 /* Clibsodium.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 093EFE3E24DB1E1400D7ED92 /* Clibsodium.xcframework */; };
 		094298301EDDAA3B001236B1 /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0942982F1EDDAA3B001236B1 /* Stream.swift */; };
@@ -66,6 +65,8 @@
 		60CB27B91EB3714E0079CA46 /* Sodium.h in Headers */ = {isa = PBXBuildFile; fileRef = 09A943CC1A4EB5F500C8A04F /* Sodium.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		60D50A6A1FD1778300FCE80F /* Sodium.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A943C71A4EB5F500C8A04F /* Sodium.framework */; };
 		60D50A6B1FD1778300FCE80F /* Sodium.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 09A943C71A4EB5F500C8A04F /* Sodium.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6396DA7725C478E40024E3D6 /* Clibsodium.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 093EFE3E24DB1E1400D7ED92 /* Clibsodium.xcframework */; };
+		6396DA7825C478E40024E3D6 /* Clibsodium.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 093EFE3E24DB1E1400D7ED92 /* Clibsodium.xcframework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7D6373E21E7B5E0800F04E72 /* KeyExchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6373E11E7B5E0800F04E72 /* KeyExchange.swift */; };
 		7D6373E31E7B6C6E00F04E72 /* KeyExchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6373E11E7B5E0800F04E72 /* KeyExchange.swift */; };
 		901645031AE376C100163E3E /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901645021AE376C100163E3E /* Helpers.swift */; };
@@ -238,6 +239,17 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6396DA7925C478E40024E3D6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6396DA7825C478E40024E3D6 /* Clibsodium.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D87D517521647599006D2C03 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -395,7 +407,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				093EFE3F24DB1E1400D7ED92 /* Clibsodium.xcframework in Frameworks */,
+				6396DA7725C478E40024E3D6 /* Clibsodium.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -792,6 +804,7 @@
 				09A943C31A4EB5F500C8A04F /* Frameworks */,
 				09A943C41A4EB5F500C8A04F /* Headers */,
 				09A943C51A4EB5F500C8A04F /* Resources */,
+				6396DA7925C478E40024E3D6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
